@@ -11,19 +11,18 @@ const highlights = [
 export default function HomePage() {
   return (
     <main className="min-h-screen bg-[#07152e]">
-      {/* HERO SECTION */}
       <section className="relative flex min-h-screen flex-col overflow-hidden text-white">
 
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#07152e] via-[#0d2250] to-[#07152e]" />
 
-        {/* FOTO BACKGROUND */}
+        {/* Background image */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/bsi.jpg')" }}
         />
 
-        {/* Overlay navy */}
+        {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#07152e]/95 via-[#07152e]/75 to-[#07152e]/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#07152e]/80 via-transparent to-[#07152e]/50" />
 
@@ -46,15 +45,13 @@ export default function HomePage() {
         <div className="absolute -bottom-48 -left-32 h-[520px] w-[520px] rounded-full bg-indigo-500/20 blur-[120px]" />
         <div className="absolute left-1/2 top-1/3 h-[300px] w-[300px] -translate-x-1/2 rounded-full bg-sky-400/10 blur-[100px]" />
 
-        {/* NAVBAR */}
+        {/* Navbar */}
         <div className="relative z-20">
           <Navbar />
         </div>
 
-        {/* HERO CONTENT */}
+        {/* Hero content */}
         <div className="relative z-10 mx-auto grid w-full max-w-7xl flex-1 items-center px-6 py-16 lg:py-20">
-
-          {/* KIRI */}
           <div>
             <div className="inline-flex items-center gap-2.5 rounded-full border border-blue-300/20 bg-white/[0.06] px-4 py-2 text-xs font-bold tracking-wider text-blue-200 backdrop-blur-md">
               <span className="relative flex h-2 w-2">
@@ -116,14 +113,14 @@ export default function HomePage() {
           </div>
         </div>
 
-        {/* SCROLL HINT */}
+        {/* Scroll hint */}
         <div className="relative z-10 flex justify-center pb-3">
           <div className="flex h-9 w-5 items-start justify-center rounded-full border border-white/25 p-1">
             <span className="h-2 w-1 animate-bounce rounded-full bg-white/70" />
           </div>
         </div>
 
-        {/* FOOTER HERO */}
+        {/* Footer */}
         <div className="relative z-10 border-t border-white/10 px-6 py-5 text-center">
           <p className="text-xs text-slate-400">
             © 2026 Sistem Informasi Peminjaman Inventaris Kampus

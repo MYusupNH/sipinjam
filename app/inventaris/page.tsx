@@ -4,10 +4,11 @@ import { connection } from "next/server";
 import PageLayout from "@/components/PageLayout";
 import Link from "next/link";
 
+export const instant = false;
+
 export default async function InventarisPage() {
   let items: any[] = [];
 
-  // Menjalankan halaman saat ada request, bukan saat build.
   await connection();
 
   try {
@@ -20,7 +21,13 @@ export default async function InventarisPage() {
     const sql = neon(databaseUrl);
 
     items = await sql`
-      SELECT id, item_code, item_name, category, stock, image_url
+      SELECT
+        id,
+        item_code,
+        item_name,
+        category,
+        stock,
+        image_url
       FROM inventory_items
       ORDER BY id DESC
     `;
@@ -40,6 +47,7 @@ export default async function InventarisPage() {
             <h2 className="text-2xl font-black text-slate-900">
               Daftar Barang
             </h2>
+
             <p className="mt-2 text-sm text-slate-500">
               Total {items.length} data inventaris.
             </p>
@@ -103,9 +111,11 @@ export default async function InventarisPage() {
         ) : (
           <div className="rounded-3xl border border-dashed border-slate-200 bg-slate-50 py-20 text-center">
             <div className="text-5xl">📦</div>
+
             <h3 className="mt-5 font-bold text-slate-800">
               Belum Ada Data Inventaris
             </h3>
+
             <p className="mt-2 text-sm text-slate-500">
               Data barang akan ditampilkan setelah ditambahkan oleh Admin.
             </p>

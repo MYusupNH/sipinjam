@@ -4,10 +4,11 @@ import { connection } from "next/server";
 import PageLayout from "@/components/PageLayout";
 import Link from "next/link";
 
+export const instant = false;
+
 export default async function RuanganPage() {
   let rooms: any[] = [];
 
-  // Menjalankan halaman saat ada request, bukan saat build.
   await connection();
 
   try {
@@ -20,7 +21,12 @@ export default async function RuanganPage() {
     const sql = neon(databaseUrl);
 
     rooms = await sql`
-      SELECT id, room_code, room_name, building, image_url
+      SELECT
+        id,
+        room_code,
+        room_name,
+        building,
+        image_url
       FROM rooms
       ORDER BY id DESC
     `;
@@ -40,6 +46,7 @@ export default async function RuanganPage() {
             <h2 className="text-2xl font-black text-slate-900">
               Daftar Ruangan
             </h2>
+
             <p className="mt-2 text-sm text-slate-500">
               Total {rooms.length} data ruangan.
             </p>
@@ -93,9 +100,11 @@ export default async function RuanganPage() {
         ) : (
           <div className="rounded-3xl border border-dashed border-slate-200 bg-slate-50 py-20 text-center">
             <div className="text-5xl">🏢</div>
+
             <h3 className="mt-5 font-bold text-slate-800">
               Belum Ada Data Ruangan
             </h3>
+
             <p className="mt-2 text-sm text-slate-500">
               Data ruangan akan ditampilkan setelah ditambahkan oleh Admin.
             </p>
