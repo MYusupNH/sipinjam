@@ -5,6 +5,8 @@ import { Suspense } from "react";
 import PageLayout from "@/components/PageLayout";
 import Link from "next/link";
 
+export const instant = false;
+
 async function RuanganContent() {
   await connection();
 
@@ -115,6 +117,7 @@ function RuanganLoading() {
         <h2 className="text-2xl font-black text-slate-900">
           Daftar Ruangan
         </h2>
+
         <p className="mt-2 text-sm text-slate-500">
           Sedang memuat data ruangan...
         </p>

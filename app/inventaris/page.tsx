@@ -5,9 +5,9 @@ import { Suspense } from "react";
 import PageLayout from "@/components/PageLayout";
 import Link from "next/link";
 
+export const instant = false;
+
 async function InventarisContent() {
-  // Query database hanya dijalankan saat ada request.
-  // Komponen ini dipanggil di dalam Suspense.
   await connection();
 
   let items: any[] = [];
@@ -128,6 +128,7 @@ function InventarisLoading() {
         <h2 className="text-2xl font-black text-slate-900">
           Daftar Barang
         </h2>
+
         <p className="mt-2 text-sm text-slate-500">
           Sedang memuat data inventaris...
         </p>
