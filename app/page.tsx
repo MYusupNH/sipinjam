@@ -1,4 +1,5 @@
- import Link from "next/link";
+
+import Link from "next/link";
 import Navbar from "@/components/Navbar";
 
 const highlights = [
@@ -16,16 +17,17 @@ export default function HomePage() {
         {/* Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#07152e] via-[#0d2250] to-[#07152e]" />
 
-        {/* FOTO BACKGROUND: simpan file di public/hero.jpg */}
+        {/* FOTO BACKGROUND */}
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url('/bsi.jpg')" }}
         />
-        {/* Overlay navy agar teks tetap terbaca */}
+
+        {/* Overlay navy */}
         <div className="absolute inset-0 bg-gradient-to-r from-[#07152e]/95 via-[#07152e]/75 to-[#07152e]/40" />
         <div className="absolute inset-0 bg-gradient-to-t from-[#07152e]/80 via-transparent to-[#07152e]/50" />
 
-        {/* Grid pattern halus */}
+        {/* Grid pattern */}
         <div
           className="absolute inset-0 opacity-[0.07]"
           style={{
@@ -105,7 +107,9 @@ export default function HomePage() {
                   <p className="mt-3 text-base font-extrabold text-white">
                     {item.title}
                   </p>
-                  <p className="mt-0.5 text-xs text-slate-400">{item.desc}</p>
+                  <p className="mt-0.5 text-xs text-slate-400">
+                    {item.desc}
+                  </p>
                 </div>
               ))}
             </div>
@@ -122,8 +126,7 @@ export default function HomePage() {
         {/* FOOTER HERO */}
         <div className="relative z-10 border-t border-white/10 px-6 py-5 text-center">
           <p className="text-xs text-slate-400">
-            © {new Date().getFullYear()} Sistem Informasi Peminjaman Inventaris
-            Kampus
+            © 2026 Sistem Informasi Peminjaman Inventaris Kampus
           </p>
         </div>
       </section>

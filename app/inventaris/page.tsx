@@ -1,14 +1,24 @@
 
 import { neon } from "@neondatabase/serverless";
+import { connection } from "next/server";
 import PageLayout from "@/components/PageLayout";
 import Link from "next/link";
-
-const sql = neon(process.env.DATABASE_URL!);
 
 export default async function InventarisPage() {
   let items: any[] = [];
 
+  // Menjalankan halaman saat ada request, bukan saat build.
+  await connection();
+
   try {
+    const databaseUrl = process.env.DATABASE_URL;
+
+    if (!databaseUrl) {
+      throw new Error("DATABASE_URL belum dikonfigurasi.");
+    }
+
+    const sql = neon(databaseUrl);
+
     items = await sql`
       SELECT id, item_code, item_name, category, stock, image_url
       FROM inventory_items
